@@ -4,7 +4,7 @@ import LocalCafe from "@material-ui/icons/LocalCafe";
 import Restaurant from "@material-ui/icons/Restaurant";
 import SettingsApplicationsIcon from "@material-ui/icons/SettingsApplications";
 import SearchIcon from "@material-ui/icons/Search";
-
+import BeerList from "./BeerList";
 import "antd/dist/antd.css"; // or 'antd/dist/antd.less'
 const { TabPane } = Tabs;
 export default function FullWidthTabs() {
@@ -20,7 +20,7 @@ export default function FullWidthTabs() {
       >
         <Tabs defaultActiveKey="1">
           <TabPane tab="ALL" key="4">
-            Tab 1
+            <BeerList />
           </TabPane>
           <TabPane tab="PIZZA" key="5">
             Tab 2
