@@ -1,19 +1,25 @@
-import React from "react";
-import { Card } from "antd";
-import { Col } from "antd";
-
-const { Meta } = Card;
-
+import React, { useState, useEffect } from "react";
+import { Card, Col, Avatar, Modal, Button } from "antd";
 export default function Beer(props) {
+  const [showModal, setShowModal] = useState(false);
+  const { Meta } = Card;
   return (
-    <Col span={8}>
-      <Card
-        hoverable
-        style={{ width: 240 }}
-        cover={<img alt={props.name} src={props.image} />}
-      >
-        <Meta title={props.tagline} description={props.description} />
-      </Card>
+    <Col
+      align="middle"
+      justify="space-between"
+      style={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        border: "1px solid red",
+        paddingTop: "1em",
+        paddingBottom: "1em",
+        margin: "1em"
+      }}
+      xs={4}
+      onClick={() => setShowModal(true)}
+    >
+      <img alt="img" style={{ width: "30px" }} src={props.image} />
     </Col>
   );
 }
