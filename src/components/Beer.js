@@ -1,19 +1,11 @@
 import React from "react";
-import { Card } from "antd";
 import { Col } from "antd";
-
-const { Meta } = Card;
-
 export default function Beer(props) {
   return (
-    <Col span={8}>
-      <Card
-        hoverable
-        style={{ width: 240 }}
-        cover={<img alt={props.name} src={props.image} />}
-      >
-        <Meta title={props.tagline} description={props.description} />
-      </Card>
+    <Col onClick={(item)=> props.onClick(item)} span={8}>
+      <div style={{textAlign:"center"}}>
+        <img alt="test" style={{width:"5vw", maxWidth:"50px",minWidth:"35px"}} src={props.image} />
+      </div>
     </Col>
   );
 }

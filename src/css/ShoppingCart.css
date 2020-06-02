@@ -1,0 +1,18 @@
+.root {
+   z-index:4;
+   position:fixed;
+   left: 0;
+   right: 0;
+   color:white;
+   background-color:black;
+   transition: bottom .5s;
+   bottom: -30rem;
+
+}
+
+.mid {
+  bottom: -10rem
+}
+.fullShoppingCart {
+  bottom: 0
+}
