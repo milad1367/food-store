@@ -33,6 +33,7 @@ export default function BeerList() {
             
           />
       ));
+
       return beers;
     }
     getData()
