@@ -12,7 +12,7 @@ export default function BeerList() {
   const [showProduct,setShowProduct] = useState(false);
   const [cartShowStatus,setCartShowStatus] = useState("");
 
-
+  // When user clicks on an item
   const productOnClick = (item) => {
     setProduct(item);
     setShowProduct(true);
@@ -20,6 +20,7 @@ export default function BeerList() {
   }
 
   useEffect(() => {
+    
     async function getData() {
       const response = await axios.get("https://api.punkapi.com/v2/beers");
       let medBeers = response.data.filter(beer => beer.abv > 4.5 && beer.abv <= 7.5);
@@ -30,12 +31,12 @@ export default function BeerList() {
             tagline={item.tagline}
             description={item.description}
             onClick={()=>productOnClick(item)}
-            
           />
       ));
 
       return beers;
     }
+
     getData()
       .then(res => {
         setBeers(res);
