@@ -7,9 +7,10 @@ import SearchIcon from "@material-ui/icons/Search";
 import BeerList from "./BeerList";
 import "antd/dist/antd.css"; // or 'antd/dist/antd.less'
 const { TabPane } = Tabs;
+
 export default function FullWidthTabs() {
   return (
-    <Tabs  defaultActiveKey="1">
+    <Tabs defaultActiveKey="1">
       <TabPane 
         tab={
           <span>
@@ -18,7 +19,7 @@ export default function FullWidthTabs() {
         }
         key="1"
       >
-        <Tabs defaultActiveKey="1" >
+        <Tabs defaultActiveKey="1" style={{backgroundColor: '#616161'}}>
           <TabPane tab="ALL" key="4">
             <BeerList />
           </TabPane>
