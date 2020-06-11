@@ -78,6 +78,12 @@ export default function FullWidthTabs() {
 						<TabPanel value={innerTabIndex} index={0}>
 							<BeerList />
 						</TabPanel>
+						<TabPanel value={innerTabIndex} index={1}>
+							<BeerList />
+						</TabPanel>
+						<TabPanel value={innerTabIndex} index={2}>
+							<BeerList />
+						</TabPanel>
 					</SwipeableViews>
 				</TabPanel>
 				<TabPanel value={tabIndex} index={1}>
