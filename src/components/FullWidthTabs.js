@@ -3,6 +3,7 @@ import SwipeableViews from "react-swipeable-views";
 // Material UI
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
+import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
 import { makeStyles, withStyles } from "@material-ui/core/styles";
 // Icons
@@ -87,13 +88,37 @@ export default function FullWidthTabs() {
 					</SwipeableViews>
 				</TabPanel>
 				<TabPanel value={tabIndex} index={1}>
-					Tab Foods
+					<Grid
+						container
+						justify="center"
+						className={classes.otherTabsContainer}
+					>
+						<Typography variant="h6">
+							Put whatever you want here for the extra's
+						</Typography>
+					</Grid>
 				</TabPanel>
 				<TabPanel value={tabIndex} index={2}>
-					Tab Discounts
+					<Grid
+						container
+						justify="center"
+						className={classes.otherTabsContainer}
+					>
+						<Typography variant="h6">
+							Put whatever you want here for the extra's
+						</Typography>
+					</Grid>
 				</TabPanel>
 				<TabPanel value={tabIndex} index={3}>
-					Tab Search
+					<Grid
+						container
+						justify="center"
+						className={classes.otherTabsContainer}
+					>
+						<Typography variant="h6">
+							Put whatever you want here for the extra's
+						</Typography>
+					</Grid>
 				</TabPanel>
 			</SwipeableViews>
 		</div>
@@ -108,6 +133,11 @@ const useStyles = makeStyles({
 	},
 	innerTabContainer: {
 		width: "100%",
+	},
+	otherTabsContainer: {
+		color: "#212121",
+		padding: "1rem",
+		textAlign: "center",
 	},
 });
 
