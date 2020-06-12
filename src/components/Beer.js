@@ -14,19 +14,21 @@ export default function Beer(props) {
 			className={classes.beerCard}
 			onClick={(item) => props.onClick(item)}
 		>
-			<Grid item xs={12} className={classes.beerImageContainer}>
-				<img
-					alt={props.tagline}
-					src={props.image}
-					className={classes.beerImage}
-				/>
-			</Grid>
-			<Grid item xs={12}>
-				<Typography variant="caption">
-					{props.tagline.length < 10
-						? props.tagline
-						: `${props.tagline.slice(0, 10)}...`}
-				</Typography>
+			<Grid container>
+				<Grid item xs={12} className={classes.beerImageContainer}>
+					<img
+						alt={props.tagline}
+						src={props.image}
+						className={classes.beerImage}
+					/>
+				</Grid>
+				<Grid item xs={12}>
+					<Typography variant="caption">
+						{props.tagline.length < 10
+							? props.tagline
+							: `${props.tagline.slice(0, 10)}...`}
+					</Typography>
+				</Grid>
 			</Grid>
 		</Grid>
 	);

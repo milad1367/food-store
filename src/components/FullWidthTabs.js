@@ -38,7 +38,7 @@ export default function FullWidthTabs() {
 	function TabPanel(props) {
 		const { children, value, index } = props;
 		return (
-			<div hidden={value !== index}>
+			<div hidden={value !== index} style={{ width: "100%" }}>
 				{value === index && (
 					<Grid container className={classes.mainTabContainer}>
 						{children}
@@ -72,20 +72,22 @@ export default function FullWidthTabs() {
 						<MainTab label="PIZZA" />
 						<MainTab label="STEAK" />
 					</InnerTabs>
-					<SwipeableViews
-						index={innerTabIndex}
-						onChangeIndex={handleInnerTabSwipped}
-					>
-						<TabPanel value={innerTabIndex} index={0}>
-							<BeerList />
-						</TabPanel>
-						<TabPanel value={innerTabIndex} index={1}>
-							<BeerList />
-						</TabPanel>
-						<TabPanel value={innerTabIndex} index={2}>
-							<BeerList />
-						</TabPanel>
-					</SwipeableViews>
+					<Grid item xs={12} style={{ width: "100%" }}>
+						<SwipeableViews
+							index={innerTabIndex}
+							onChangeIndex={handleInnerTabSwipped}
+						>
+							<TabPanel value={innerTabIndex} index={0}>
+								<BeerList />
+							</TabPanel>
+							<TabPanel value={innerTabIndex} index={1}>
+								<BeerList />
+							</TabPanel>
+							<TabPanel value={innerTabIndex} index={2}>
+								<BeerList />
+							</TabPanel>
+						</SwipeableViews>
+					</Grid>
 				</TabPanel>
 				<TabPanel value={tabIndex} index={1}>
 					<Grid
