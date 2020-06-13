@@ -10,9 +10,6 @@ function App() {
 	const classes = useStyles();
 	return (
 		<Grid className={classes.root}>
-			<Typography variant="h5" className={classes.appHeader}>
-				Demo App
-			</Typography>
 			<FullWidthTabs />
 		</Grid>
 	);
@@ -23,9 +20,6 @@ export default App;
 const useStyles = makeStyles({
 	root: {
 		backgroundColor: "#D32F2F",
-	},
-	appHeader: {
-		textAlign: "center",
-		color: "#212121",
+		margin: "0px",
 	},
 });

@@ -3,6 +3,7 @@ import SwipeableViews from "react-swipeable-views";
 // Material UI
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
+import AppBar from "@material-ui/core/AppBar";
 import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
 import { makeStyles, withStyles } from "@material-ui/core/styles";
@@ -38,7 +39,7 @@ export default function FullWidthTabs() {
 	function TabPanel(props) {
 		const { children, value, index } = props;
 		return (
-			<div hidden={value !== index} style={{ width: "100%" }}>
+			<div hidden={value !== index}>
 				{value === index && (
 					<Grid container className={classes.mainTabContainer}>
 						{children}
@@ -50,28 +51,39 @@ export default function FullWidthTabs() {
 
 	return (
 		<div>
-			<MainTabs
-				value={tabIndex}
-				indicatorColor="primary"
-				onChange={handleMainTabChange}
+			<AppBar position="fixed" className={classes.root}>
+				<Typography variant="h5" className={classes.appHeader}>
+					Demo App
+				</Typography>
+				<MainTabs
+					value={tabIndex}
+					indicatorColor="primary"
+					onChange={handleMainTabChange}
+				>
+					<MainTab label={<LocalCafe />} />
+					<MainTab label={<Restaurant />} />
+					<MainTab label={<SettingsApplicationsIcon />} />
+					<MainTab label={<SearchIcon />} />
+				</MainTabs>
+			</AppBar>
+			<SwipeableViews
+				index={tabIndex}
+				onChangeIndex={handleMainTabSwipped}
+				className={classes.innerTabContainer}
+				style={{ marginTop: "5rem", width: "100%" }}
 			>
-				<MainTab label={<LocalCafe />} />
-				<MainTab label={<Restaurant />} />
-				<MainTab label={<SettingsApplicationsIcon />} />
-				<MainTab label={<SearchIcon />} />
-			</MainTabs>
-			<SwipeableViews index={tabIndex} onChangeIndex={handleMainTabSwipped}>
 				<TabPanel value={tabIndex} index={0}>
-					<InnerTabs
-						value={innerTabIndex}
-						indicatorColor="primary"
-						onChange={handleInnerTabChange}
-						className={classes.innerTabContainer}
-					>
-						<MainTab label="ALL" />
-						<MainTab label="PIZZA" />
-						<MainTab label="STEAK" />
-					</InnerTabs>
+					<Grid xs={12}>
+						<InnerTabs
+							value={innerTabIndex}
+							indicatorColor="primary"
+							onChange={handleInnerTabChange}
+						>
+							<MainTab label="ALL" />
+							<MainTab label="PIZZA" />
+							<MainTab label="STEAK" />
+						</InnerTabs>
+					</Grid>
 					<Grid item xs={12} style={{ width: "100%" }}>
 						<SwipeableViews
 							index={innerTabIndex}
@@ -128,10 +140,17 @@ export default function FullWidthTabs() {
 }
 
 const useStyles = makeStyles({
+	root: {
+		backgroundColor: "#D32F2F",
+	},
+	appHeader: {
+		textAlign: "center",
+		color: "#212121",
+	},
 	mainTabContainer: {
 		backgroundColor: "#FFF",
 		width: "100%",
-		minHeight: "10rem",
+		height: "100%",
 	},
 	innerTabContainer: {
 		width: "100%",
