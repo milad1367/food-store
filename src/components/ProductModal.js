@@ -14,7 +14,12 @@ export default function ProductModal(props) {
         onClose={props.close}
       >
         <DialogContent>
-          <Grid container justify>
+            <Grid container 
+            style={{
+              display: "flex",
+              justifyContent: "center",
+            }}
+            >
             <Grid item xs={7}>
               <Typography variant="h6">
               {props.product.tagline}

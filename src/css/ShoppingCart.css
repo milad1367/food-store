@@ -4,10 +4,10 @@
    left: 0;
    right: 0;
    color:white;
-   background-color:black;
+   background-color:rgb(33, 35, 41);
    transition: bottom .5s;
    bottom: -30rem;
-
+   border-radius: 22px;
 }
 
 .mid {
