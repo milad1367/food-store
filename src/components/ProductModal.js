@@ -1,47 +1,80 @@
 import React from 'react';
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
-import Grid from '@material-ui/core/Grid';
-import Typography from '@material-ui/core/Typography';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
+import { Grid, Typography, Collapse, Paper } from '@material-ui/core';
 
 export default function ProductModal(props) {
-    return (
-    <div>
-      <Dialog
-        open={props.show}
-        onClose={props.close}
-      >
-        <DialogContent>
-            <Grid container 
+  const { tagline, abv, description, image_url } = props.product;
+  const [checked, setChecked] = React.useState(false);
+  const handleChange = () => {
+    setChecked((prev) => !prev);
+  };
+
+  return (
+    <Dialog
+      open={props.show}
+      PaperProps={{
+        style: {
+          background: "#30302F",
+          paddingTop: "10px",
+          paddingBottom: "4px"
+        }
+      }}
+      onClose={props.close}
+      aria-labelledby="responsive-dialog-title"
+    >
+      <DialogContent>
+        <Grid container style={{ display: "flex" }}>
+          <Grid item xs={7} sm={7} md={7} lg={7}>
+            <Typography variant="h6" style={{ color: "#fff", marginBottom: "4px" }}> Beer Name</Typography>
+            <Typography variant="subtitle2" style={{ color: "#C9C9C7" }}>{tagline}</Typography>
+            <Typography variant="subtitle2" style={{ color: "#C9C9C7" }}>{abv}</Typography>
+            <Typography variant="subtitle2" style={{ color: "#C9C9C7" }}>
+              <Collapse in={checked} collapsedHeight={40}>
+                {description}
+              </Collapse>
+              <a onClick={handleChange}>{checked ? "less" : "more"}</a>
+            </Typography>
+          </Grid>
+          <Grid item xs={5} sm={5} md={5} lg={5}
             style={{
               display: "flex",
               justifyContent: "center",
-            }}
-            >
-            <Grid item xs={7}>
-              <Typography variant="h6">
-              {props.product.tagline}
-              </Typography>
-              <Typography variant="subtitle1">
-              {props.product.abv}
-              </Typography>
-              <Typography variant="caption">
-              {props.product.description}
-              </Typography>
-            </Grid>
-            <Grid item xs={5}>
-            <img style={{width:"5vw", maxWidth:"50px",minWidth:"35px"}} src={props.product.image_url} />
-            </Grid>
+              alignItems: "center"
+            }}>
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                background: "#F2F8FA",
+                width: "100px",
+                height: "100px",
+                borderRadius: "10px"
+              }}>
+              <img
+                style={{
+                  width: "26%",
+                  height: "76%"
+                }}
+                src={image_url} />
+            </div>
           </Grid>
-        </DialogContent>
-        <DialogActions>
-          <Button onClick={props.addToCart} color="primary" autoFocus>
-            ADD TO CART
-          </Button>
-        </DialogActions>
-      </Dialog>
-    </div>
+        </Grid>
+      </DialogContent>
+      <DialogActions>
+        <Button onClick={props.addToCart} color="primary"
+          style={{
+            backgroundColor: "#F2F8FA",
+            color: "#313236",
+            borderRadius: "10px",
+            padding: "10px 32px 10px 32px",
+          }}>
+          ADD TO CART
+        </Button>
+      </DialogActions>
+    </Dialog>
   );
 }
