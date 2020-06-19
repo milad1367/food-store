@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import SwipeableViews from "react-swipeable-views";
 // Material UI
 import Tabs from "@material-ui/core/Tabs";
@@ -14,11 +14,14 @@ import SettingsApplicationsIcon from "@material-ui/icons/SettingsApplications";
 import SearchIcon from "@material-ui/icons/Search";
 // Components
 import BeerList from "./BeerList";
+import ShoppingCart from "./ShoppingCart";
 
 export default function FullWidthTabs() {
 	const classes = useStyles();
 	const [tabIndex, setTabIndex] = React.useState(0);
 	const [innerTabIndex, setInnerTabIndex] = React.useState(0);
+	const [productIncart, setProductInCart] = useState({});
+	const [cartShowStatus, setCartShowStatus] = useState("");
 
 	const handleMainTabChange = (event, newValue) => {
 		setTabIndex(newValue);
@@ -34,6 +37,15 @@ export default function FullWidthTabs() {
 
 	const handleInnerTabSwipped = (index) => {
 		setInnerTabIndex(index);
+	};
+
+	const addToCart = (product) => {
+		setProductInCart(product);
+		setCartShowStatus("mid");
+	};
+
+	const productOnClick = (item) => {
+		setCartShowStatus("");
 	};
 
 	function TabPanel(props) {
@@ -90,13 +102,22 @@ export default function FullWidthTabs() {
 							onChangeIndex={handleInnerTabSwipped}
 						>
 							<TabPanel value={innerTabIndex} index={0}>
-								<BeerList />
+								<BeerList
+									addToCart={addToCart}
+									productOnClick={productOnClick}
+								/>
 							</TabPanel>
 							<TabPanel value={innerTabIndex} index={1}>
-								<BeerList />
+								<BeerList
+									addToCart={addToCart}
+									productOnClick={productOnClick}
+								/>
 							</TabPanel>
 							<TabPanel value={innerTabIndex} index={2}>
-								<BeerList />
+								<BeerList
+									addToCart={addToCart}
+									productOnClick={productOnClick}
+								/>
 							</TabPanel>
 						</SwipeableViews>
 					</Grid>
@@ -135,6 +156,7 @@ export default function FullWidthTabs() {
 					</Grid>
 				</TabPanel>
 			</SwipeableViews>
+			<ShoppingCart product={productIncart} cartShowStatus={cartShowStatus} />
 		</div>
 	);
 }

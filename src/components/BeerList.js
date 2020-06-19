@@ -6,21 +6,18 @@ import { makeStyles } from "@material-ui/core/styles";
 // Components
 import Beer from "./Beer";
 import ProductModal from "./ProductModal";
-import ShoppingCart from "./ShoppingCart";
 
-export default function BeerList() {
+export default function BeerList(props) {
 	const classes = useStyles();
 	const [beers, setBeers] = useState([]);
 	const [product, setProduct] = useState({});
-	const [productIncart, setProductInCart] = useState({});
 	const [showProduct, setShowProduct] = useState(false);
-	const [cartShowStatus, setCartShowStatus] = useState("");
 
 	// When user clicks on an item
 	const productOnClick = (item) => {
 		setProduct(item);
 		setShowProduct(true);
-		setCartShowStatus("");
+		props.productOnClick(item);
 	};
 
 	async function getData() {
@@ -51,8 +48,7 @@ export default function BeerList() {
 
 	const addToCart = (product) => {
 		setShowProduct(false);
-		setProductInCart(product);
-		setCartShowStatus("mid");
+		props.addToCart(product);
 	};
 
 	return (
@@ -66,7 +62,6 @@ export default function BeerList() {
 			<Grid container spacing={1} className={classes.beerCardContainer}>
 				{beers}
 			</Grid>
-			<ShoppingCart product={productIncart} cartShowStatus={cartShowStatus} />
 		</div>
 	);
 }
