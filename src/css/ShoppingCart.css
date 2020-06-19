@@ -6,13 +6,13 @@
    color:white;
    background-color:rgb(33, 35, 41);
    transition: bottom .5s;
-   bottom: -40rem;
+   bottom: -26rem;
    border-top-left-radius: 22px;
    border-top-right-radius: 22px;
 }
 
 .mid {
-  bottom: -10rem
+  bottom: -20rem
 }
 .fullShoppingCart {
   bottom: 0

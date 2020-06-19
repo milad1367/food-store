@@ -43,9 +43,9 @@ export default function ShoppingCart(props) {
             <RemoveIcon style={{ color: "#B0AFB7" }} />
           </div>
           <div style={{
-            display: "flex",
+            display: "flex", 
             justifyContent: "center",
-            marginBottom: "10px"
+            marginBottom: "16px"
           }}>
             <span><StorefrontIcon fontSize={"small"} style={{ color: "#B0AFB7" }} /></span>
             <span style={{ marginRight: "4px", color: "#B0AFB7" }}>Shopping Cart</span>
@@ -56,7 +56,7 @@ export default function ShoppingCart(props) {
           <Grid item xs={12} sm={8} md={6} lg={6}>
             {
               carts.map((item, i) =>
-                <div key={i} style={{ marginTop: "2px" }}>
+                <div key={i} style={{ marginTop: "4px" }}>
                   <RowCart cart={item} />
                 </div>
               )}
