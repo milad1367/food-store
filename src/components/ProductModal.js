@@ -7,7 +7,11 @@ import { Grid, Typography, Collapse, Paper } from '@material-ui/core';
 
 export default function ProductModal(props) {
   const { tagline, abv, description, image_url } = props.product;
-  const [checked, setChecked] = React.useState(false);
+  const [checked, setChecked] = React.useState();
+  React.useEffect(()=>{
+    setChecked(false);
+  }, [props.show]);
+
   const handleChange = () => {
     setChecked((prev) => !prev);
   };

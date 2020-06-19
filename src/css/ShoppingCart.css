@@ -6,8 +6,9 @@
    color:white;
    background-color:rgb(33, 35, 41);
    transition: bottom .5s;
-   bottom: -30rem;
-   border-radius: 22px;
+   bottom: -40rem;
+   border-top-left-radius: 22px;
+   border-top-right-radius: 22px;
 }
 
 .mid {
