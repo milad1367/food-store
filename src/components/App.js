@@ -1,18 +1,25 @@
-import React from 'react';
+import React from "react";
+// Material UI
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
-//import '../css/App.css';
-import FullWidthTabs from './FullWidthTabs';
+import { makeStyles } from "@material-ui/core/styles";
+// Components
+import FullWidthTabs from "./FullWidthTabs";
 
 function App() {
-  return (
-    <Grid className="App" style={{backgroundColor: 'red'}}>
-      <Typography variant="h5" style={{textAlign: 'center'}}>
-        Demo App
-      </Typography>
-       <FullWidthTabs />
-    </Grid>
-  );
+	const classes = useStyles();
+	return (
+		<Grid className={classes.root}>
+			<FullWidthTabs />
+		</Grid>
+	);
 }
 
 export default App;
+
+const useStyles = makeStyles({
+	root: {
+		backgroundColor: "#D32F2F",
+		margin: "0px",
+	},
+});
