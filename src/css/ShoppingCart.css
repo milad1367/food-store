@@ -1,18 +1,105 @@
 .root {
-   z-index:4;
-   position:fixed;
-   left: 0;
-   right: 0;
-   color:white;
-   background-color:black;
-   transition: bottom .5s;
-   bottom: -30rem;
+  z-index: 4;
+  position: fixed;
+  left: 0;
+  right: 0;
+  color: white;
+  background-color: rgb(33, 35, 41);
+  transition: bottom 0.5s;
+  bottom: -26rem;
+  border-top-left-radius: 22px;
+  border-top-right-radius: 22px;
+}
 
+@media (min-width: 300px) {
+  .root {
+    bottom: -27rem;
+  }
+}
+@media (min-width: 320px) {
+  .root {
+    bottom: -30rem;
+  }
+}
+@media (min-width: 340px) {
+  .root {
+    bottom: -26rem;
+  }
+}
+@media (min-width: 350px) {
+  .root {
+    bottom: -29rem;
+  }
+}
+@media (min-width: 360px) {
+  .root {
+    bottom: -29rem;
+  }
+}
+@media (min-width: 370px) {
+  .root {
+    bottom: -26rem;
+  }
+}
+@media (min-width: 380px) {
+  .root {
+    bottom: -26rem;
+  }
+}
+@media (min-width: 480px) {
+   .root {
+    bottom: -28rem;
+  }
+}
+@media (min-width: 500px) {
+   .root {
+    bottom: -26rem;
+  }
+}
+@media (min-width: 540px) {
+   .root {
+    bottom: -28rem;
+  }
+}
+@media (min-width: 560px) {
+   .root {
+    bottom: -28rem;
+  }
+}
+@media (min-width: 600px) {
+   .root {
+    bottom: -28.8rem;
+  }
+}
+@media (min-width: 640px) {
+   .root {
+    bottom: -28rem;
+  }
+}
+@media (min-width: 700px) {
+   .root {
+    bottom: -26rem;
+  }
+}
+@media (min-width: 801px) {
+   .root {
+    bottom: -26rem;
+  }
+}
+@media (min-width: 1025px) {
+   .root {
+    bottom: -26rem;
+  }
+}
+@media (min-width: 1281px) {
+   .root {
+    bottom: -26rem;
+  }
 }
 
 .mid {
-  bottom: -10rem
+  bottom: -20rem;
 }
 .fullShoppingCart {
-  bottom: 0
+  bottom: 0;
 }

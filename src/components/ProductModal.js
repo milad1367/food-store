@@ -7,7 +7,11 @@ import { Grid, Typography, Collapse, Paper } from '@material-ui/core';
 
 export default function ProductModal(props) {
   const { tagline, abv, description, image_url } = props.product;
-  const [checked, setChecked] = React.useState(false);
+  const [checked, setChecked] = React.useState();
+  React.useEffect(()=>{
+    setChecked(false);
+  }, [props.show]);
+
   const handleChange = () => {
     setChecked((prev) => !prev);
   };
@@ -18,7 +22,7 @@ export default function ProductModal(props) {
       PaperProps={{
         style: {
           background: "#30302F",
-          paddingTop:"10px",
+          paddingTop: "10px",
           paddingBottom: "4px"
         }
       }}
@@ -28,7 +32,7 @@ export default function ProductModal(props) {
       <DialogContent>
         <Grid container style={{ display: "flex" }}>
           <Grid item xs={7} sm={7} md={7} lg={7}>
-            <Typography variant="h6" style={{ color: "#fff",marginBottom:"4px" }}> Beer Name</Typography>
+            <Typography variant="h6" style={{ color: "#fff", marginBottom: "4px" }}> Beer Name</Typography>
             <Typography variant="subtitle2" style={{ color: "#C9C9C7" }}>{tagline}</Typography>
             <Typography variant="subtitle2" style={{ color: "#C9C9C7" }}>{abv}</Typography>
             <Typography variant="subtitle2" style={{ color: "#C9C9C7" }}>
@@ -44,27 +48,27 @@ export default function ProductModal(props) {
               justifyContent: "center",
               alignItems: "center"
             }}>
-            <div 
-            style={{ 
-              display: "flex", 
-              justifyContent: "center", 
-              alignItems: "center", 
-              background: "#F2F8FA", 
-              width: "100px", 
-              height: "100px", 
-              borderRadius: "10px" 
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                background: "#F2F8FA",
+                width: "100px",
+                height: "100px",
+                borderRadius: "10px"
               }}>
-              <img 
-              style={{ 
-                width: "26%",
-                height: "76%" 
-                }} 
+              <img
+                style={{
+                  width: "26%",
+                  height: "76%"
+                }}
                 src={image_url} />
             </div>
           </Grid>
         </Grid>
       </DialogContent>
-      <DialogActions> 
+      <DialogActions>
         <Button onClick={props.addToCart} color="primary"
           style={{
             backgroundColor: "#F2F8FA",
