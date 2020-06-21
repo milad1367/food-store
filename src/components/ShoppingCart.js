@@ -12,6 +12,10 @@ export default function ShoppingCart(props) {
   const ref = React.useRef();
   const showFull = () => {
     const wrapper = ref.current;
+    // Empty Cart
+    if (Object.keys(props.product).length === 0) {
+      return;
+    }
     wrapper.classList.toggle('fullShoppingCart');
     if (wrapper.className.search('mid ') > 0) {
       wrapper.classList.toggle('mid');
@@ -34,6 +38,8 @@ export default function ShoppingCart(props) {
         // console.log(className);
         if (className.includes("mid") || className.includes("fullShoppingCart")) {
           wrapper.classList = ['root'];
+          console.log('if');
+
           // wrapper.classList.toggle('mid');
         }
       }}>
@@ -43,7 +49,7 @@ export default function ShoppingCart(props) {
             <RemoveIcon style={{ color: "#B0AFB7" }} />
           </div>
           <div style={{
-            display: "flex", 
+            display: "flex",
             justifyContent: "center",
             marginBottom: "16px"
           }}>
@@ -88,7 +94,7 @@ export default function ShoppingCart(props) {
                   color: "#664200",
                   padding: "10px",
                   margin: "1px",
-                  flexGrow:1,
+                  flexGrow: 1,
                   textAlign: "center"
                 }}>
                   <Typography >ZERO</Typography>
@@ -109,7 +115,7 @@ export default function ShoppingCart(props) {
                   padding: "10px",
                   margin: "1px",
                   flexGrow: 1,
-                  textAlign:"center"
+                  textAlign: "center"
                 }}>
                   <Typography>10%</Typography>
                 </div>
