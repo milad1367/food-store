@@ -183,6 +183,7 @@ const useStyles = makeStyles({
 		color: "#212121",
 		padding: "1rem",
 		textAlign: "center",
+		minHeight: "35rem",
 	},
 });
 
