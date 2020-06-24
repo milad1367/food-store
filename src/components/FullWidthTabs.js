@@ -85,7 +85,7 @@ export default function FullWidthTabs() {
 				style={{ marginTop: "5rem", width: "100%" }}
 			>
 				<TabPanel value={tabIndex} index={0}>
-					<Grid xs={12}>
+					<Grid item xs={12}>
 						<InnerTabs
 							value={innerTabIndex}
 							indicatorColor="primary"
@@ -100,6 +100,7 @@ export default function FullWidthTabs() {
 						<SwipeableViews
 							index={innerTabIndex}
 							onChangeIndex={handleInnerTabSwipped}
+							enableMouseEvents
 						>
 							<TabPanel value={innerTabIndex} index={0}>
 								<BeerList
@@ -126,6 +127,7 @@ export default function FullWidthTabs() {
 					<Grid
 						container
 						justify="center"
+						alignItems="stretch"
 						className={classes.otherTabsContainer}
 					>
 						<Typography variant="h6">
@@ -172,10 +174,10 @@ const useStyles = makeStyles({
 	mainTabContainer: {
 		backgroundColor: "#FFF",
 		width: "100%",
-		height: "100%",
 	},
 	innerTabContainer: {
 		width: "100%",
+		backgroundColor: "#FFF",
 	},
 	otherTabsContainer: {
 		color: "#212121",

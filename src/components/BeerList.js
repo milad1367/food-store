@@ -59,7 +59,7 @@ export default function BeerList(props) {
 				product={product}
 				show={showProduct}
 			/>
-			<Grid container spacing={1} className={classes.beerCardContainer}>
+			<Grid container className={classes.beerCardContainer}>
 				{beers}
 			</Grid>
 		</div>
