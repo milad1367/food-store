@@ -59,7 +59,11 @@ export default function BeerList(props) {
 				product={product}
 				show={showProduct}
 			/>
-			<Grid container className={classes.beerCardContainer}>
+			<Grid
+				container
+				className={classes.beerCardContainer}
+				style={{ filter: showProduct ? "blur(3px)" : "" }}
+			>
 				{beers}
 			</Grid>
 		</div>
