@@ -38,8 +38,6 @@ export default function ShoppingCart(props) {
         // console.log(className);
         if (className.includes("mid") || className.includes("fullShoppingCart")) {
           wrapper.classList = ['root'];
-          console.log('if');
-
           // wrapper.classList.toggle('mid');
         }
       }}>
