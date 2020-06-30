@@ -13,17 +13,27 @@
 
 @media (min-width: 300px) {
   .root {
-    bottom: -27rem;
+    bottom: -31.8rem;
+  }
+}
+@media (min-width: 305px) {
+  .root {
+    bottom: -30.8rem;
+  }
+}
+@media (min-width: 310px) {
+  .root {
+    bottom: -30.3rem;
   }
 }
 @media (min-width: 320px) {
   .root {
-    bottom: -30rem;
+    bottom: -30.3rem;
   }
 }
 @media (min-width: 340px) {
   .root {
-    bottom: -26rem;
+    bottom: -29rem;
   }
 }
 @media (min-width: 350px) {
@@ -38,7 +48,7 @@
 }
 @media (min-width: 370px) {
   .root {
-    bottom: -26rem;
+    bottom: -29rem;
   }
 }
 @media (min-width: 380px) {
@@ -48,7 +58,7 @@
 }
 @media (min-width: 480px) {
   .root {
-    bottom: -28rem;
+    bottom: -26rem;
   }
 }
 @media (min-width: 500px) {
@@ -58,12 +68,12 @@
 }
 @media (min-width: 540px) {
   .root {
-    bottom: -28rem;
+    bottom: -26rem;
   }
 }
 @media (min-width: 560px) {
   .root {
-    bottom: -28rem;
+    bottom: -26rem;
   }
 }
 @media (min-width: 600px) {
@@ -71,9 +81,14 @@
     bottom: -28.8rem;
   }
 }
+@media (min-width: 620px) {
+  .root {
+    bottom: -29rem;
+  }
+}
 @media (min-width: 640px) {
   .root {
-    bottom: -28rem;
+    bottom: -26rem;
   }
 }
 @media (min-width: 700px) {

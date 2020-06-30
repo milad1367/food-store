@@ -6,6 +6,7 @@ import Tab from "@material-ui/core/Tab";
 import AppBar from "@material-ui/core/AppBar";
 import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
+import Slide from "@material-ui/core/Slide";
 import { makeStyles, withStyles } from "@material-ui/core/styles";
 // Icons
 import LocalCafe from "@material-ui/icons/LocalCafe";
@@ -78,6 +79,17 @@ export default function FullWidthTabs() {
       .catch((err) => console.log(err));
   }, []);
 
+  function InnerTabPanel(props) {
+    const { children, value, index } = props;
+    return (
+      <Slide in={true} direction="left" timeout={600}>
+        <div hidden={value !== index}>
+          {value === index && <div>{children}</div>}
+        </div>
+      </Slide>
+    );
+  }
+
   return (
     <div>
       <AppBar position="fixed" className={classes.root}>
@@ -95,50 +107,60 @@ export default function FullWidthTabs() {
           <MainTab label={<SearchIcon />} />
         </MainTabs>
       </AppBar>
+      <Grid item xs={12} style={{ justifyItems: "center" }}>
+        {tabIndex === 0 ? (
+          <InnerTabs
+            value={innerTabIndex}
+            indicatorColor="primary"
+            onChange={handleInnerTabChange}
+            className={classes.innerTab}
+          >
+            <MainTab label="ALL" />
+            <MainTab label="PIZZA" />
+            <MainTab label="STEAK" />
+          </InnerTabs>
+        ) : (
+          <InnerTabs
+            value={innerTabIndex}
+            indicatorColor="primary"
+            className={classes.innerTab}
+          >
+            <MainTab label="ALL FOODS" />
+          </InnerTabs>
+        )}
+      </Grid>
       <SwipeableViews
         index={tabIndex}
         onChangeIndex={handleMainTabSwipped}
         className={classes.innerTabContainer}
-        style={{ marginTop: "5rem", width: "100%" }}
       >
         <TabPanel value={tabIndex} index={0}>
-          <Grid xs={12}>
-            <InnerTabs
-              value={innerTabIndex}
-              indicatorColor="primary"
-              onChange={handleInnerTabChange}
-            >
-              <MainTab label="ALL" />
-              <MainTab label="PIZZA" />
-              <MainTab label="STEAK" />
-            </InnerTabs>
-          </Grid>
           <Grid item xs={12} style={{ width: "100%" }}>
             <SwipeableViews
               index={innerTabIndex}
               onChangeIndex={handleInnerTabSwipped}
             >
-              <TabPanel value={innerTabIndex} index={0}>
+              <InnerTabPanel value={innerTabIndex} index={0}>
                 <BeerList
                   beers={beers}
                   addToCart={addToCart}
                   productOnClick={productOnClick}
                 />
-              </TabPanel>
-              <TabPanel value={innerTabIndex} index={1}>
+              </InnerTabPanel>
+              <InnerTabPanel value={innerTabIndex} index={1}>
                 <BeerList
                   beers={beers}
                   addToCart={addToCart}
                   productOnClick={productOnClick}
                 />
-              </TabPanel>
-              <TabPanel value={innerTabIndex} index={2}>
+              </InnerTabPanel>
+              <InnerTabPanel value={innerTabIndex} index={2}>
                 <BeerList
                   beers={beers}
                   addToCart={addToCart}
                   productOnClick={productOnClick}
                 />
-              </TabPanel>
+              </InnerTabPanel>
             </SwipeableViews>
           </Grid>
         </TabPanel>
@@ -146,6 +168,7 @@ export default function FullWidthTabs() {
           <Grid
             container
             justify="center"
+            alignItems="stretch"
             className={classes.otherTabsContainer}
           >
             <Typography variant="h6">
@@ -192,15 +215,20 @@ const useStyles = makeStyles({
   mainTabContainer: {
     backgroundColor: "#FFF",
     width: "100%",
-    height: "100%",
   },
   innerTabContainer: {
+    width: "100%",
+    backgroundColor: "#FFF",
+  },
+  innerTab: {
+    marginTop: "5rem",
     width: "100%",
   },
   otherTabsContainer: {
     color: "#212121",
     padding: "1rem",
     textAlign: "center",
+    minHeight: "35rem",
   },
 });
 
@@ -214,10 +242,14 @@ const MainTabs = withStyles({
 const InnerTabs = withStyles({
   root: {
     backgroundColor: "#212121",
+    "& div.MuiTabs-scroller": {
+      "& .MuiTabs-flexContainer": {
+        justifyContent: "center",
+      },
+    },
   },
   indicator: {
-    backgroundColor: "#F0F",
-    display: "none",
+    backgroundColor: "#212121",
   },
 })(Tabs);
 
