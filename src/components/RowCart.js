@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import { Grid, Typography, Icon } from "@material-ui/core";
-import DeleteOutlineIcon from '@material-ui/icons/DeleteOutline';
+import DeleteOutlineIcon from "@material-ui/icons/DeleteOutline";
 
 export default function RowCart(props) {
   const { image_url, tagline } = props.cart;
@@ -15,15 +15,17 @@ export default function RowCart(props) {
     setNumberOfValue(numberOfValue - 1);
   }
   return (
-    <Grid container
+    <Grid
+      container
       style={{
         display: "flex",
         justifyContent: "center",
-        alignItems: "cebter"
+        alignItems: "cebter",
       }}
     >
       <Grid item xs={2} sm={2} md={2} lg={2}>
-        <Grid container
+        <Grid
+          container
           style={{
             position: "relative",
             display: "flex",
@@ -39,44 +41,52 @@ export default function RowCart(props) {
               background: "#FAB901",
               borderRadius: "8px",
               padding: "3px",
-
-            }}>
+            }}
+          >
             <Typography
               style={{
                 fontSize: "11px",
                 fontWeight: "bold",
                 color: "#664200",
-              }}>€12</Typography>
+              }}
+            >
+              €12
+            </Typography>
           </div>
           <img
             style={{
               width: "24px",
-              height: "70px"
+              height: "70px",
             }}
-            src={image_url} />
+            alt="rowcart"
+            src={image_url}
+          />
         </Grid>
       </Grid>
       <Grid item xs={5} sm={5} md={5} lg={5}>
-        <Typography variant="subtitle2"
+        <Typography
+          variant="subtitle2"
           style={{
             color: "#D9D9DB",
             fontSize: "12px",
             fontWeight: "normal",
-            marginBottom: "4px"
-          }}>
+            marginBottom: "4px",
+          }}
+        >
           {tagline}
         </Typography>
-        <Typography variant="subtitle2"
+        <Typography
+          variant="subtitle2"
           style={{
             color: "#B0AFB7",
             fontSize: "9px",
-            fontWeight: "normal"
-          }}>
+            fontWeight: "normal",
+          }}
+        >
           Additional information here
-          </Typography>
+        </Typography>
       </Grid>
-      <Grid item xs={3} sm={3} md={3} lg={3}
-        style={{ display: "flex" }}>
+      <Grid item xs={3} sm={3} md={3} lg={3} style={{ display: "flex" }}>
         <div
           style={{
             borderRadius: "4px 0 0 4px",
@@ -86,18 +96,22 @@ export default function RowCart(props) {
             height: "20px",
             textAlign: "center",
             fontWeight: "bold",
-            cursor: "pointer"
+            cursor: "pointer",
           }}
           onClick={decrementalValue}
-        >-</div>
+        >
+          -
+        </div>
         <div
           style={{
             color: "#B0AFB7",
             width: "26px",
             height: "20px",
-            textAlign: "center"
+            textAlign: "center",
           }}
-        >{numberOfValue}</div>
+        >
+          {numberOfValue}
+        </div>
         <div
           style={{
             background: "#FAB901",
@@ -109,14 +123,15 @@ export default function RowCart(props) {
             cursor: "pointer",
           }}
           onClick={incrementalValue}
-        >+</div>
+        >
+          +
+        </div>
       </Grid>
       <Grid item xs={2} sm={2} md={2} lg={2}>
         <Icon>
           <DeleteOutlineIcon style={{ color: "#936464" }} />
         </Icon>
       </Grid>
-
     </Grid>
   );
 }
