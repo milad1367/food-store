@@ -257,50 +257,7 @@ export default function ShoppingCart(props) {
             <Grid item xs={1} sm={3} md={4} lg={4} />
           </Grid>
         </div>
-
-        {/* <p>{props.product.tagline}</p> */}
-        {/* <p>I am shopping cart</p>
-     <p>I am shopping cart</p>
-      <p>I am shopping cart</p>
-      <p>I am shopping cart</p>
-      <p>I am shopping cart</p>  */}
-        {/* <p>I am shopping cart</p>
-      <p>I am shopping cart</p>
-      <p>I am shopping cart</p>
-      <p>I am shopping cart</p>
-      <p>I am shopping cart</p>
-      <p>I am shopping cart</p>
-      <p>I am shopping cart</p>
-      <p>I am shopping cart</p>
-      <p>I am shopping cart</p>
-      <p>I am shopping cart</p>  */}
       </div>
     </OutsideClickHandler>
   );
 }
-
-// const useStyles = makeStyles((theme) => ({
-//     root: {
-
-//     }
-//   }));
-
-// const handleUserKeyPress = React.useCallback(event => {
-//   const { key, keyCode } = event;
-//   console.log(keyCode)
-
-// }, []);
-// const handleClickOutside = (event) => {
-//   console.log(event.target)
-//   if (ref && !ref.contains(event.target)) {
-//     alert('You clicked outside of me!');
-//   }
-// }
-
-// React.useEffect(() => {
-//   window.addEventListener('mousedown', handleClickOutside);
-
-//   return () => {
-//     window.removeEventListener('mousedown', handleClickOutside);
-//   };
-// }, [handleClickOutside]);
