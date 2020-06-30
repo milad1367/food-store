@@ -222,7 +222,11 @@ const MainTabs = withStyles({
 const InnerTabs = withStyles({
 	root: {
 		backgroundColor: "#212121",
-		justifyContent: "center",
+		"& div.MuiTabs-scroller": {
+			"& .MuiTabs-flexContainer": {
+				justifyContent: "center",
+			},
+		},
 	},
 	indicator: {
 		backgroundColor: "#212121",
