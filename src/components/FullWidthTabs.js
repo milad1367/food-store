@@ -15,6 +15,7 @@ import SearchIcon from "@material-ui/icons/Search";
 // Components
 import BeerList from "./BeerList";
 import ShoppingCart from "./ShoppingCart";
+import axios from "axios";
 
 export default function FullWidthTabs() {
   const classes = useStyles();
@@ -22,6 +23,7 @@ export default function FullWidthTabs() {
   const [innerTabIndex, setInnerTabIndex] = React.useState(0);
   const [productIncart, setProductInCart] = useState({});
   const [cartShowStatus, setCartShowStatus] = useState("");
+  const [beers, setBeers] = useState([]);
 
   const handleMainTabChange = (event, newValue) => {
     setTabIndex(newValue);
@@ -60,6 +62,21 @@ export default function FullWidthTabs() {
       </div>
     );
   }
+  async function getData() {
+    const response = await axios.get("https://api.punkapi.com/v2/beers");
+    let medBeers = response.data.filter(
+      (beer) => beer.abv > 4.5 && beer.abv <= 7.5
+    );
+    return medBeers;
+  }
+  React.useEffect(() => {
+    // Get data
+    getData()
+      .then((res) => {
+        setBeers(res);
+      })
+      .catch((err) => console.log(err));
+  }, []);
 
   return (
     <div>
@@ -103,18 +120,21 @@ export default function FullWidthTabs() {
             >
               <TabPanel value={innerTabIndex} index={0}>
                 <BeerList
+                  beers={beers}
                   addToCart={addToCart}
                   productOnClick={productOnClick}
                 />
               </TabPanel>
               <TabPanel value={innerTabIndex} index={1}>
                 <BeerList
+                  beers={beers}
                   addToCart={addToCart}
                   productOnClick={productOnClick}
                 />
               </TabPanel>
               <TabPanel value={innerTabIndex} index={2}>
                 <BeerList
+                  beers={beers}
                   addToCart={addToCart}
                   productOnClick={productOnClick}
                 />

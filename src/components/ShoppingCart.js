@@ -32,18 +32,13 @@ export default function ShoppingCart(props) {
   return (
     <OutsideClickHandler
       onOutsideClick={() => {
-        // console.log(ref)
         const wrapper = ref.current;
         const className = wrapper.className;
-        // console.log(className);
         if (
           className.includes("mid") ||
           className.includes("fullShoppingCart")
         ) {
           wrapper.classList = ["root"];
-          console.log("if");
-
-          // wrapper.classList.toggle('mid');
         }
       }}
     >

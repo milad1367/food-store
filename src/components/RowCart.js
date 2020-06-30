@@ -58,6 +58,7 @@ export default function RowCart(props) {
               width: "24px",
               height: "70px",
             }}
+            alt="rowcart"
             src={image_url}
           />
         </Grid>
