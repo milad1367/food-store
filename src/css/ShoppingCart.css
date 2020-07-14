@@ -51,6 +51,11 @@
     bottom: -29rem;
   }
 }
+@media (min-width: 375px) {
+  .root {
+    bottom: -25.5rem;
+  }
+}
 @media (min-width: 380px) {
   .root {
     bottom: -26rem;

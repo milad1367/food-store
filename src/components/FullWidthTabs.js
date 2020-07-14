@@ -30,6 +30,7 @@ export default function FullWidthTabs() {
   const handleMainTabChange = (event, newValue) => {
     setTabIndex(newValue);
     setAnimate(true);
+    setCartShowStatus("root");
   };
 
   const handleMainTabSwipped = (index) => {
@@ -40,6 +41,7 @@ export default function FullWidthTabs() {
   const handleInnerTabChange = (event, newValue) => {
     setInnerTabIndex(newValue);
     setAnimate(true);
+    setCartShowStatus("root");
   };
 
   const handleInnerTabSwipped = (index) => {
