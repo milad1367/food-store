@@ -5,17 +5,23 @@ import OutsideClickHandler from "react-outside-click-handler";
 import RemoveIcon from "@material-ui/icons/Remove";
 import StorefrontIcon from "@material-ui/icons/Storefront";
 import { Button, Grid, Typography } from "@material-ui/core";
-
+import useWindowSize from "../utils/windowSize";
 export default function ShoppingCart(props) {
+  const size = useWindowSize();
+  const [isFull, setIsFull] = React.useState(false);
+  console.log(size);
+
   let carts = [];
   carts.push(props.product);
   const ref = React.useRef();
+
   const showFull = () => {
     const wrapper = ref.current;
     // Empty Cart
     if (Object.keys(props.product).length === 0) {
       return;
     }
+    setIsFull((prev) => !prev);
     wrapper.classList.toggle("fullShoppingCart");
     if (wrapper.className.search("mid ") > 0) {
       wrapper.classList.toggle("mid");
@@ -54,11 +60,19 @@ export default function ShoppingCart(props) {
             <RemoveIcon style={{ color: "#B0AFB7" }} />
           </div>
           <div
-            style={{
-              display: "flex",
-              justifyContent: "center",
-              marginBottom: "16px",
-            }}
+            style={
+              size.height < 600 && isFull
+                ? {
+                    display: "flex",
+                    justifyContent: "center",
+                    marginBottom: "0px",
+                  }
+                : {
+                    display: "flex",
+                    justifyContent: "center",
+                    marginBottom: "16px",
+                  }
+            }
           >
             <span>
               <StorefrontIcon fontSize={"small"} style={{ color: "#B0AFB7" }} />
@@ -85,24 +99,43 @@ export default function ShoppingCart(props) {
             flexDirection: "column",
           }}
         >
-          <div style={{ height: "40px" }} />
+          <div
+            style={
+              size.height < 600 && isFull
+                ? { height: "5px" }
+                : { height: "40px" }
+            }
+          />
           <Grid container>
             <Grid item xs={1} sm={3} md={4} lg={4} />
             <Grid item xs={10} sm={6} md={4} lg={4}>
               <Typography
                 variant="subtitle2"
-                style={{
-                  color: "#6F7176",
-                  marginBottom: "6px",
-                }}
+                style={
+                  size.height < 600 && isFull
+                    ? {
+                        color: "#6F7176",
+                        marginBottom: "2px",
+                      }
+                    : {
+                        color: "#6F7176",
+                        marginBottom: "6px",
+                      }
+                }
               >
                 Tips for waiters
               </Typography>
               <Grid
                 container
-                style={{
-                  marginBottom: "30px",
-                }}
+                style={
+                  size.height < 600 && isFull
+                    ? {
+                        marginBottom: "5px",
+                      }
+                    : {
+                        marginBottom: "30px",
+                      }
+                }
               >
                 <div
                   style={{
@@ -157,9 +190,15 @@ export default function ShoppingCart(props) {
               </Grid>
               <Grid
                 container
-                style={{
-                  marginBottom: "22px",
-                }}
+                style={
+                  size.height < 600 && isFull
+                    ? {
+                        marginBottom: "5px",
+                      }
+                    : {
+                        marginBottom: "22px",
+                      }
+                }
               >
                 <Grid item xs={2}>
                   <Grid container direction="column">
@@ -209,9 +248,15 @@ export default function ShoppingCart(props) {
               </Grid>
               <Grid
                 container
-                style={{
-                  marginBottom: "20px",
-                }}
+                style={
+                  size.height < 600 && isFull
+                    ? {
+                        marginBottom: "5px",
+                      }
+                    : {
+                        marginBottom: "20px",
+                      }
+                }
               >
                 <Grid item xs={2}>
                   <Typography
@@ -237,13 +282,23 @@ export default function ShoppingCart(props) {
               </Grid>
               <Grid container>
                 <Button
-                  style={{
-                    background: "#FAB901",
-                    borderRadius: "16px",
-                    width: "100%",
-                    textTransform: "capitalize",
-                    marginBottom: "30px",
-                  }}
+                  style={
+                    size.height < 600 && isFull
+                      ? {
+                          background: "#FAB901",
+                          borderRadius: "16px",
+                          width: "100%",
+                          textTransform: "capitalize",
+                          marginBottom: "5px",
+                        }
+                      : {
+                          background: "#FAB901",
+                          borderRadius: "16px",
+                          width: "100%",
+                          textTransform: "capitalize",
+                          marginBottom: "30px",
+                        }
+                  }
                 >
                   Confirm Payment
                 </Button>
